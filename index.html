@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Abhay Singh | Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        :root {
+            --bg: #f4f7fb;
+            --card: #ffffff;
+            --text: #151515;
+            --secondary: #666;
+            --primary: #4f46e5;
+            --border: #ddd;
+        }
+
+        body.dark {
+            --bg: #101116;
+            --card: #1b1d25;
+            --text: #ffffff;
+            --secondary: #b8b8b8;
+            --primary: #818cf8;
+            --border: #333640;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.3s;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mode-btn {
+            border: none;
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 7%;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary);
+        }
+
+        .hero-text h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: var(--secondary);
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* PHOTO */
+        .photo-box {
+            text-align: center;
+        }
+
+        .photo-box img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 7px solid var(--primary);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        /* UPLOAD */
+        .upload-section {
+            max-width: 700px;
+            margin: 20px auto 60px;
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .upload-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .upload-section p {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact {
+            padding: 70px 7%;
+            text-align: center;
+            background: var(--card);
+        }
+
+        .contact h2 {
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: var(--secondary);
+            font-size: 18px;
+            margin: 10px;
+        }
+
+        .phone {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: var(--secondary);
+            background: var(--bg);
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .hero {
+                padding: 40px 5%;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .photo-box {
+                order: 1;
+            }
+
+            .hero-text h1 {
+                font-size: 42px;
+            }
+
+            .photo-box img {
+                width: 230px;
+                height: 230px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Abhay Singh</div>
+
+        <div class="nav-right">
+            <button class="mode-btn" onclick="toggleMode()" id="modeButton">
+                🌙 Dark
+            </button>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+                <h1>Hello, I'm <span>Abhay Singh</span></h1>
+
+                <h2>Welcome to My Website 👋</h2>
+
+                <p>
+                    यह मेरी personal website है।
+                    यहाँ मैं अपने फोटो और अपनी जानकारी शेयर कर सकता हूँ।
+                    आप नीचे से अपना फोटो भी अपलोड कर सकते हैं।
+                </p>
+            </div>
+
+
+            <div class="photo-box">
+
+                <!-- Default Photo -->
+                <img
+                    id="profilePhoto"
+                    src="https://via.placeholder.com/300"
+                    alt="Abhay Singh">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PHOTO UPLOAD -->
+    <section class="upload-section">
+
+        <h2>📸 अपना फोटो अपलोड करें</h2>
+
+        <p>
+            अपना फोटो चुनें और वह ऊपर आपकी profile photo के रूप में दिखाई देगा।
+        </p>
+
+        <label for="photoUpload" class="upload-btn">
+            📤 Upload Photo
+        </label>
+
+        <input
+            type="file"
+            id="photoUpload"
+            accept="image/*">
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact">
+
+        <h2>📞 Contact Me</h2>
+
+        <p>अगर आप मुझसे संपर्क करना चाहते हैं तो नीचे दिए नंबर पर संपर्क करें।</p>
+
+        <!-- अपना नंबर यहाँ डालें -->
+        <a
+            class="phone"
+            href="tel:+919999999999">
+            📱 +91 99999 99999
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Abhay Singh | All Rights Reserved
+    </footer>
+
+
+    <script>
+
+        /* DARK / DAY MODE */
+
+        function toggleMode() {
+
+            document.body.classList.toggle("dark");
+
+            const button = document.getElementById("modeButton");
+
+            if (document.body.classList.contains("dark")) {
+                button.innerHTML = "☀️ Day";
+                localStorage.setItem("theme", "dark");
+            } else {
+                button.innerHTML = "🌙 Dark";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+
+        /* SAVED THEME */
+
+        if (localStorage.getItem("theme") === "dark") {
+
+            document.body.classList.add("dark");
+
+            document.getElementById("modeButton").innerHTML = "☀️ Day";
+        }
+
+
+        /* PHOTO UPLOAD */
+
+        const photoUpload = document.getElementById("photoUpload");
+        const profilePhoto = document.getElementById("profilePhoto");
+
+
+        /* पहले से सेव फोटो दिखाएँ */
+
+        const savedPhoto = localStorage.getItem("abhayProfilePhoto");
+
+        if (savedPhoto) {
+            profilePhoto.src = savedPhoto;
+        }
+
+
+        photoUpload.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (!file) return;
+
+            if (!file.type.startsWith("image/")) {
+                alert("कृपया केवल फोटो चुनें।");
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+
+                profilePhoto.src = event.target.result;
+
+                /* Browser में फोटो सेव करें */
+                localStorage.setItem(
+                    "abhayProfilePhoto",
+                    event.target.result
+                );
+
+            };
+
+            reader.readAsDataURL(file);
+
+        });
+
+    </script>
+
+</body>
+</html>
