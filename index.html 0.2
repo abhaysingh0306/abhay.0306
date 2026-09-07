@@ -1,0 +1,391 @@
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>अफ़र सिंह | My Profile</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+:root{
+    --bg:#f3f5f9;
+    --card:#fff;
+    --text:#171717;
+    --sub:#666;
+    --main:#635bff;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:.3s;
+}
+
+body.dark{
+    --bg:#0d0f14;
+    --card:#181b22;
+    --text:#fff;
+    --sub:#aaa;
+}
+
+header{
+    background:var(--card);
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:10;
+    box-shadow:0 2px 15px #0001;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:var(--main);
+}
+
+button{
+    border:0;
+    cursor:pointer;
+}
+
+.mode{
+    padding:10px 16px;
+    border-radius:25px;
+    background:var(--main);
+    color:white;
+}
+
+.hero{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.profile{
+    max-width:700px;
+}
+
+.photo{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:7px solid var(--main);
+    margin-bottom:25px;
+    box-shadow:0 15px 40px #0003;
+}
+
+h1{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+h1 span{
+    color:var(--main);
+}
+
+.bio{
+    color:var(--sub);
+    font-size:18px;
+    line-height:1.7;
+    margin:15px auto 25px;
+}
+
+.contact{
+    display:inline-block;
+    padding:14px 25px;
+    background:var(--main);
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.admin{
+    max-width:600px;
+    margin:30px auto 70px;
+    padding:30px;
+    background:var(--card);
+    border-radius:20px;
+    box-shadow:0 10px 30px #0001;
+    text-align:center;
+}
+
+.admin h2{
+    margin-bottom:10px;
+}
+
+.admin p{
+    color:var(--sub);
+    margin-bottom:20px;
+}
+
+input[type=password]{
+    width:100%;
+    padding:13px;
+    border:1px solid #bbb;
+    border-radius:10px;
+    margin-bottom:12px;
+}
+
+.upload{
+    display:none;
+    margin-top:20px;
+}
+
+.upload label{
+    display:inline-block;
+    padding:13px 22px;
+    background:var(--main);
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+input[type=file]{
+    display:none;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:var(--card);
+    color:var(--sub);
+}
+
+@media(max-width:600px){
+    h1{
+        font-size:36px;
+    }
+
+    .photo{
+        width:210px;
+        height:210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">अफ़र सिंह</div>
+
+    <button class="mode" onclick="toggleMode()" id="modeBtn">
+        🌙 Dark Mode
+    </button>
+</header>
+
+
+<section class="hero">
+
+    <div class="profile">
+
+        <!-- आपकी फोटो यहाँ दिखाई जाएगी -->
+        <img
+            id="myPhoto"
+            class="photo"
+            src="https://via.placeholder.com/500"
+            alt="अफ़र सिंह">
+
+        <h1>नमस्ते, मैं <span>अफ़र सिंह</span> हूँ</h1>
+
+        <p class="bio">
+            यह मेरी personal profile website है।
+            यहाँ आप मेरी profile और मेरी फोटो देख सकते हैं।
+        </p>
+
+        <a class="contact" href="tel:8299842211">
+            📞 8299842211
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- केवल मालिक के लिए Upload Area -->
+<section class="admin">
+
+    <h2>🔐 Owner Photo Upload</h2>
+
+    <p>
+        केवल वेबसाइट के मालिक के लिए फोटो अपलोड।
+    </p>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Owner Password">
+
+    <button
+        class="mode"
+        onclick="login()">
+        Login
+    </button>
+
+    <div class="upload" id="uploadBox">
+
+        <p>अपनी नई फोटो चुनें:</p>
+
+        <label for="photoInput">
+            📸 Upload My Photo
+        </label>
+
+        <input
+            type="file"
+            id="photoInput"
+            accept="image/*">
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 अफ़र सिंह | My Personal Website
+</footer>
+
+
+<script>
+
+/* =========================
+   OWNER PASSWORD
+   ========================= */
+
+const OWNER_PASSWORD = "Abhay@123";
+
+
+function login(){
+
+    const password =
+        document.getElementById("password").value;
+
+    if(password === OWNER_PASSWORD){
+
+        document.getElementById("uploadBox").style.display =
+            "block";
+
+        alert("Owner Login Successful!");
+
+    }else{
+
+        alert("गलत Password!");
+
+    }
+}
+
+
+/* =========================
+   PHOTO UPLOAD
+   ========================= */
+
+const photoInput =
+    document.getElementById("photoInput");
+
+const myPhoto =
+    document.getElementById("myPhoto");
+
+
+/* पहले से सेव फोटो */
+
+const savedPhoto =
+    localStorage.getItem("afarSinghPhoto");
+
+if(savedPhoto){
+    myPhoto.src = savedPhoto;
+}
+
+
+/* नई फोटो */
+
+photoInput.addEventListener("change", function(){
+
+    const file = this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    if(!file.type.startsWith("image/")){
+
+        alert("कृपया केवल फोटो चुनें।");
+        return;
+
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        myPhoto.src = e.target.result;
+
+        localStorage.setItem(
+            "afarSinghPhoto",
+            e.target.result
+        );
+
+        alert("आपकी फोटो सफलतापूर्वक अपडेट हो गई!");
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/* =========================
+   DARK / LIGHT MODE
+   ========================= */
+
+function toggleMode(){
+
+    document.body.classList.toggle("dark");
+
+    const btn =
+        document.getElementById("modeBtn");
+
+    if(document.body.classList.contains("dark")){
+
+        btn.innerHTML = "☀️ Day Mode";
+
+        localStorage.setItem("theme","dark");
+
+    }else{
+
+        btn.innerHTML = "🌙 Dark Mode";
+
+        localStorage.setItem("theme","light");
+
+    }
+}
+
+
+/* Saved Theme */
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark");
+
+    document.getElementById("modeBtn").innerHTML =
+        "☀️ Day Mode";
+}
+
+</script>
+
+</body>
+</html>
+```
