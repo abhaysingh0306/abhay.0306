@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<marquee> this form last date 30 september 2026 </marquee>
+		<h1>Addmision Form </h1>
+		<label>First Name</label>
+		<input type="text" placeholder="Ente Your First Name" name=""> <br>
+		<label>Last Name</label>
+		<input type="text" placeholder="Ente Your Last Name" name=""><br>
+		<label>Phone No</label>
+		<input type="number" placeholder="Ente Your Phone No" name=""><br>
+		<label>email id</label><br>
+		<input type="gmail" placeholder="Ente Your @ gmail" name=""><br>
+		<button class="text">sumb it</button>
+	    <button class="box">watch now</button>
+
+	</form>
+
+</body>
+<style>
+	form{
+		background-color: skyblue;
+		width: 30%;
+		height: 100%;
+		margin: 10px;
+		padding: 5px;
+		border-radius: 5px;
+
+	}
+	input{
+		margin: 5px;
+	}
+	.box:hover{ background-color: red;
+		color: blue;
+		border-radius: 50px;
+cursor: pointer;
+	}
+
+		.text:hover{ background-color: green;
+			color: yellow;
+			border-radius: 50px;
+			cursor: pointer;}
+			marquee{
+				background-color: red;
+				color: white;
+			}
+			h1{
+				color: white;
+
+
+
+			}
+</style>
+</html>
